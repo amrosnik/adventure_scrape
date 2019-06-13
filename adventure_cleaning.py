@@ -65,7 +65,7 @@ syrup_df = combine_names_in_list(syrup_guard_list,0)
 susan_list = ['susan','susan strong']
 susan_df = combine_names_in_list(susan_list,1)
 
-softppl_list = ['soft people','soft child','soft person #1','soft person #2', 'soft person #3','old soft person']
+softppl_list = ['soft people','soft child','fluffy person','soft person #1','soft person #2', 'soft person #3','old soft person']
 softppl_df = combine_names_in_list(softppl_list,0)
 
 smo_list = ['smo 1','smo 2','smo 3','smo 4','smo 5','smo 6']
