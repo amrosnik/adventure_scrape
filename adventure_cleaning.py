@@ -47,47 +47,47 @@ def combine_names_in_list(list_of_grps,which_name):
 banana_list = ['banana guard','another banana guard', 'captain banana guard', 'female banana guard', 'private banana guard','the four banana guards','banana guards','banana guard #1','banana guard #2','banana guard (on radio)','banana guard 500',"banana guard [in finn's memory]",'banana guard [over phone]','banana guard i','banana guard ii','banana guard leader','banana guard number 3','flying banana guard', 'flying banana guards']
 banana_df = combine_names_in_list(banana_list,0)
 
-voice_list = ['a voice','a voice in the distance']
-voice_df = combine_names_in_list(voice_list,0)
+#voice_list = ['a voice','a voice in the distance']
+#voice_df = combine_names_in_list(voice_list,0)
 
-alarm_list = ['alarm','alarm clock bird','alarm clock with a headshot of princess bubblegum taped to the minute hand']
-alarm_df = combine_names_in_list(alarm_list,0)
+#alarm_list = ['alarm','alarm clock bird','alarm clock with a headshot of princess bubblegum taped to the minute hand']
+#alarm_df = combine_names_in_list(alarm_list,0)
 
-alien_list = ['alien groom','aliens']
-alien_df = combine_names_in_list(alien_list,0)
+#alien_list = ['alien groom','aliens']
+#alien_df = combine_names_in_list(alien_list,0)
 
-townppl_list = ['townspeople (all)','townsperson','villager','villager with eyepatch','townsperson (blue shirt)','townsperson (green shirt)','townsperson (red shirt)','townsperson with fire-spitting belly button']
-townppl_df = combine_names_in_list(townppl_list,1)
+#townppl_list = ['townspeople (all)','townsperson','villager','villager with eyepatch','townsperson (blue shirt)','townsperson (green shirt)','townsperson (red shirt)','townsperson with fire-spitting belly button']
+#townppl_df = combine_names_in_list(townppl_list,1)
 
-syrup_guard_list = ['syrup guard','syrup guard #2','syrup guard #3','syrup guard #4']
-syrup_df = combine_names_in_list(syrup_guard_list,0)
+#syrup_guard_list = ['syrup guard','syrup guard #2','syrup guard #3','syrup guard #4']
+#syrup_df = combine_names_in_list(syrup_guard_list,0)
 
 susan_list = ['susan','susan strong']
 susan_df = combine_names_in_list(susan_list,1)
 
-softppl_list = ['soft people','soft child','fluffy person','soft person #1','soft person #2', 'soft person #3','old soft person']
-softppl_df = combine_names_in_list(softppl_list,0)
+#softppl_list = ['soft people','soft child','fluffy person','soft person #1','soft person #2', 'soft person #3','old soft person']
+#softppl_df = combine_names_in_list(softppl_list,0)
 
-smo_list = ['smo 1','smo 2','smo 3','smo 4','smo 5','smo 6']
-smo_df = combine_names_in_list(smo_list,0)
+#smo_list = ['smo 1','smo 2','smo 3','smo 4','smo 5','smo 6']
+#smo_df = combine_names_in_list(smo_list,0)
 
-snail_lady_list = ['snail lady','snail ladies','snail lady #1','snail lady #2','snail lady #3','snail lady #4']
-snail_lady_df = combine_names_in_list(snail_lady_list,0)
+#snail_lady_list = ['snail lady','snail ladies','snail lady #1','snail lady #2','snail lady #3','snail lady #4']
+#snail_lady_df = combine_names_in_list(snail_lady_list,0)
 
-tart_guard_list = ['royal tart path guard 1','royal tart path guard 2','royal tart path guard 3','royal tart path guard 4','royal tart path guard 5','royal tart path guard 6','royal tart path guard 7','royal tart path guard 8']
-tart_guard_df = combine_names_in_list(tart_guard_list,0)
+#tart_guard_list = ['royal tart path guard 1','royal tart path guard 2','royal tart path guard 3','royal tart path guard 4','royal tart path guard 5','royal tart path guard 6','royal tart path guard 7','royal tart path guard 8']
+#tart_guard_df = combine_names_in_list(tart_guard_list,0)
 
-pillow_list = ['pillow people','pillow child','pillow children']
-pillow_df = combine_names_in_list(pillow_list,0)
+#pillow_list = ['pillow people','pillow child','pillow children']
+#pillow_df = combine_names_in_list(pillow_list,0)
 
-penguin_list = ['penguin','penguin [on tape]','penguins']
-penguin_df = combine_names_in_list(penguin_list,0)
+#penguin_list = ['penguin','penguin [on tape]','penguins','gunthalina']
+#penguin_df = combine_names_in_list(penguin_list,0)
 
 magic_man_list = ['magic man','magic man [as jake]','magic man [quietly]']
 magic_man_df = combine_names_in_list(magic_man_list,0)
 
-lesser_flame_guard_list = ['lesser flame guards','lesser flame guard 1','lesser flame guard 2','lesser flame guard 3']
-lesser_flame_guard_df = combine_names_in_list(lesser_flame_guard_list,0)
+#lesser_flame_guard_list = ['lesser flame guards','lesser flame guard 1','lesser flame guard 2','lesser flame guard 3']
+#lesser_flame_guard_df = combine_names_in_list(lesser_flame_guard_list,0)
 
 
 ## Beemo, BMO
