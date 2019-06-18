@@ -29,8 +29,11 @@ pd.set_option('max_colwidth',-1)
 #print(df['Character'].value_counts())
 
 test_marceline = df.loc[df['Character'] == 'marceline']
-test_marceline['words'] = test_marceline.loc[:,'Dialogue'].str.strip().str.split('[\s_]+')
-test_marceline['words'] = re.sub(r'[?]','',test_marceline['words'])
+test_marceline['Dialogue'] = test_marceline['Dialogue'].str.lower() 
+test_marceline['dialogue words'] = test_marceline.loc[:,'Dialogue'].str.strip().str.split('[\s_]+')
+test_marceline['Action'] = test_marceline['Action'].str.lower() 
+test_marceline['action words'] = test_marceline.loc[:,'Action'].str.strip().str.split('[\s_]+')
+#test_marceline['action words'] = test_marceline['action words'].str.replace(',','')
 print(test_marceline.head())
 
 #word_by_word 
