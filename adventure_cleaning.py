@@ -65,6 +65,48 @@ banana_df = combine_names_in_list(banana_list,0)
 susan_list = ['susan','susan strong']
 susan_df = combine_names_in_list(susan_list,1)
 
+cake_list = ['cake','fionna and cake']
+cake_df = combine_names_in_list(cake_list,0)
+
+tiffany_list =  ['tiffany', 'tiffany and jake','tiffany, gareth and the flying lettuce brothers']
+tiffany_df = combine_names_in_list(tiffany_list,0)
+
+fern_list = ['fern','finn & fern']
+fern_df = combine_names_in_list(fern_list,0)
+
+gunter_list = ['gunter','gunther']
+gunter_df = combine_names_in_list(gunter_list,0)
+
+flame_princess_list = ['flame princess']  ## there are multiple rows with this key, after making case insensitive
+flame_princess_df = combine_names_in_list(flame_princess_list,0)
+
+king_ooo_list = ['king of ooo','king of ooo & toronto']
+king_ooo_df = combine_names_in_list(king_ooo_list,0)
+
+lady_list = ['lady rainicorn','lady','lady and finn','lady, finn','finn, lady','princess and lady']
+lady_df = combine_names_in_list(lady_list,0)
+
+pbutler_list = ['peppermint butler', "peppermint butler's mouth"]
+pbutler_df = combine_names_in_list(pbutler_list,0)
+
+simon_list = ['simon','simon (over telephone)','simon [on tape]','simon petrikov','simon/marcy']
+simon_df = combine_names_in_list(simon_list,0)
+
+marshall_list = ['marshall lee','marhsall lee']
+marshall_df = combine_names_in_list(marshall_list,0)
+
+starchie_list = ['starchie','starchie (on radio)','starchy']
+starchie_df = combine_names_in_list(starchie_list,0)
+
+joshua_list = ['joshua','joshua [on tape]','joshua [on tapes, which are being tampered with by jake]','imaginary joshua']
+joshua_df = combine_names_in_list(joshua_list,0)
+
+tree_trunks_list = ['tree trunks']  ## there are multiple rows with this key, after making case insensitive
+tree_trunks_df = combine_names_in_list(tree_trunks_list,0)
+
+bmo_list = ['bmo','beemo','bmo (flashback)','bmo (os)','bmo (vo)','bmo [as bebe]','bmo [as lorraine]','bmo [as officer davis]','bmo [as ronnie, deeper voice]','bmo [as ronnie]','bmo [flashback]','bmo [in its thoughts]','bmo [narrating]','bmo & bubble']
+bmo_df = combine_names_in_list(bmo_list,0)
+
 #softppl_list = ['soft people','soft child','fluffy person','soft person #1','soft person #2', 'soft person #3','old soft person']
 #softppl_df = combine_names_in_list(softppl_list,0)
 
@@ -89,65 +131,66 @@ magic_man_df = combine_names_in_list(magic_man_list,0)
 #lesser_flame_guard_list = ['lesser flame guards','lesser flame guard 1','lesser flame guard 2','lesser flame guard 3']
 #lesser_flame_guard_df = combine_names_in_list(lesser_flame_guard_list,0)
 
+lemongrabs_list = ['lemongrabs','lemongrab 3','lemon camel','lemon children','lemon person','lemon head','orange lemon child','three-pronged lemon child']
+lemongrabs_df = combine_names_in_list(lemongrabs_list,0)
 
-## Beemo, BMO
-## Betty, Betty Grof? 
-## Both Finn and Jake,Both Finn and Jake, Finn & Jake [X], Finn and Jake [X], Jake and Finn
-## Bubblegum, Princess Bubblegum, Princes Bubblegum, Princess Bubblgum, Princess Bubblegun, Princess Bubblegum [X]..also, Bonnie?
-## Candy Person [X], Candy Sheriff, Candy Tavern Person, Candy children, Candy crowd,
-## (cont.) Candy dude, Candy person, Candy soldier, Candy soldiers, Random candy person
-## Candy butler and Peppermint butler?????
-## Chery Cream Soda, Cherry Cream Soda
-## Demon in crowd, Demon in crowd #2, Demon in line
-## Dream Jake, Dream Jake (slowly)
-## Fat Villager [x]
-## Finn [x]
-## CharacterX, CharacterX [flashback]
-## Finn & Princess Bubblegum, Finn and Princess Bubblegum
-## Finn's Mother, Finn's mom
-## Flame Guard [x]
-## Flame People, Flame Person
-## Flame Princess [x]
-## Flying Lettuce Brother, Flying Lettuce Brothers
-## Fox [X]
-## Gnome [X]
-## Goblin Thief [X]
-## Guard [X]
-## Gumball Guardian [X]
-## Gumdrop Lass [X], Gumdrop Lasses
-## Gunter, Gunther
-## Head Marauder
-## Hot Dog Night [X]
-## Hooligan, Hooligans
-## Hunson, Hunson Abadeer
-## Ice Kin [X]
-## King of Ooo, King Of Ooo
-## Lady, Lady Rainicorn
-## Lady and Finn; Lady, Finn
-## Lesser Flame Guard [X], Lesser Flame Guards
-## Lollipop Girl, Lollipop girl
-## Lumpy Space Princess [x]
-## Magic Man, Magic Man [quietly]
-## Marauder [X]
-## Marcelince, Marceline, Marc, Marcy 
-## Marshmallow Kid [X], Marshmallow Kids
-## Mr. Pig & Tree Trunks, Mr. Pig and Tree Trunks
-## Muscular Ghost [X]
-## Nymph, Nymphs
-## Penguin, Penguins
-## Professor Worm, Professor worm
-## Royal Tart Path Guard [X]
-## Simon [X]
-## Snail Lady [x]
-## Spiky Guard, (s)
-## Starchie, Starchie (on radio), Starchy
-## Suitor [x]
-## Susan, Susan Strong
-## T.V., TV
-## Lich, The Lich
-## Tree Trunks
-## Tree Witch, Tree Witch'
-## Wildberry Guard [x]
-## Wildberry kid,(S)
-## Worker,(s)
-## [double-check if different-colored BMO's are actually BMO's or other MO's]
+lemongrab_list = ['lemongrab','earl of lemongrab']
+lemongrab_df = combine_names_in_list(lemongrabs_list,0)
+
+other_lemongrab_list = ['lemongrab 2','lemongrab clone']
+other_lemongrab_df = combine_names_in_list(other_lemongrab_list,0)
+
+ice_king_list = ['ice king','ice king [flashback]','ice king [in flashback]','ice king [off-screen]','ice king [on tape]','ice king [voice-over]',"ice king's crown",'ice king & abracadaniel','ice king & marceline','ice king and abracadaniel']
+ice_king_df = combine_names_in_list(ice_king_list,0)
+
+lich_list = ['the lich','lich','snail [the lich]', 'lich/jake','lich/sweet p'] 
+lich_df = combine_names_in_list(lich_list,0)
+
+prince_gumball_df = df.loc[df['Character'] == 'prince gumball'] 
+
+normal_man_df = df.loc[df['Character'] == 'normal man']
+
+lemonhope_df = df.loc[df['Character'] == 'lemonhope']
+
+fionna_df = df.loc[df['Character'] == 'fionna']
+
+cinnabun_df = df.loc[df['Character'] == 'cinnamon bun']
+
+death_df = df.loc[df['Character'] == 'death']
+
+sweetp_df = df.loc[df['Character'] == 'sweet p']
+
+football_df = df.loc[df['Character'] == 'football']
+
+lsp_list = ['lumpy space princess','lumpy space princess [voice-over]','lsp','lumpy space princess & marceline']
+lsp_df = combine_names_in_list(lsp_list,2)
+
+betty_list = ['betty','betty grof']
+betty_df = combine_names_in_list(betty_list,0)
+
+hunson_list = ['hunson','hunson abadeer','lord of evil']
+hunson_df = combine_names_in_list(hunson_list,1)
+
+finn_list = ['finn','finn & bear','finn (in flashback)','finn (voiceover)','finn [back to normal]','finn [flashback]','finn [fully transformed]',"finn [in finn's thoughts]",'finn [in flashback]',"finn [on bmo's camera]",'finn [on phone]','finn [on voicemail]','finn [voice-over]','finn [whispering still]','future finn','little finn','past finn','transparent finn']
+finn_df = combine_names_in_list(finn_list,0)
+
+finn_and_jake_list = ['finn & jake','finn & jake','finn & jake [in unison]','finn & jake [on voicemail]','finn & jake','finn and jake','finn and jake [in unision]','finn and jake [in unison]','finn and jake together','imaginary finn & jake','jake and finn','both finn and jake','both finn and jake'] 
+finn_and_jake_df = combine_names_in_list(finn_and_jake_list,0)
+
+jake_list = ['jake','jake & his subconscious','jake (in flashback)','jake (voiceover)',"jake [in bmo's dream]",'jake [in flashback]','jake [offscreen]','jake [on phone]','jake [on voicemail]','jake [the one watching the video]','jake [voice-over]',"jake's elbow","jake's subconscious",'past jake','pictured jake','puppy jake','dream jake','dream jake (slowly)','flashback jake', 'future jake','giant jake']
+jake_df = combine_names_in_list(jake_list,0)
+
+marceline_list = ['marceline','marc','marcelince','marceline and ghosts','marcy','teenage marceline','young marceline' ]
+marceline_df = combine_names_in_list(marceline_list,0)
+
+bubblegum_list = ['princess bubblegum','princes bubblegum', "princess bubblegum [finn's mind]", 'princess bubblegum [hologram]', "princess bubblegum [in finn's mind]", 'princess bubblegum [in real world]', 'princess bubblegum [in video]','princess bubblegum [voice-over]', "princess bubblegum's voice [in finn's head]", 'princess bubblegun', 'princess bubblgum', 'bubblegum', 'hallucination of princess bubblegum', 'pb']
+bubblegum_df = combine_names_in_list(bubblegum_list,0)
+
+all_dfs = [banana_df,susan_df,cake_df,tiffany_df,finn_and_jake_df,bubblegum_df,fern_df,gunter_df,flame_princess_df,
+    king_ooo_df,lady_df,pbutler_df,simon_df,starchie_df,cinnabun_df,marshall_df,joshua_df,tree_trunks_df,bmo_df,
+    magic_man_df,lemonhope_df,lemongrabs_df,lemongrab_df,other_lemongrab_df,lich_df,ice_king_df,normal_man_df,
+    fionna_df,death_df,sweetp_df,football_df,lsp_df,betty_df,hunson_df,finn_df,jake_df,marceline_df,prince_gumball_df]
+
+big_df = pd.concat(all_dfs)
+
+big_df.to_pickle("./adventure_pickle_CLEAN.pkl")
