@@ -68,6 +68,7 @@ def pretty_plot_top_n(series,k,file_name,top_n=5, index_level=0):
     plt.xticks(fontsize=10)
     #plt.show()
     plt.savefig(file_name+'_set'+str(k)+'.png')
+    plt.close()
     return r.to_frame()
 
 
@@ -101,21 +102,44 @@ tf_idf['tf_idf'] = tf_idf['tf'] * tf_idf['idf']
 #    set_k = tf_idf.loc[idx[start_num[k]:end_num[k],:]]
 #    if len(set_k) > 0:
 #        pretty_plot_top_n(set_k['tf_idf'],k,'tf-idf_pb',top_n=5)
-
-
-
-### can we track words by 'dialogue words' index to see how their tf-idf changes with episode? 
-### game plan: 
-#### 1.switch levels in tf_idf 
-#### 2. 
+ 
 words = tf_idf.index.get_level_values(level=1).unique().tolist()
-#for word in words:
 get_more = tf_idf.swaplevel(i=0, j=1, axis=0)
 get_more.unstack()
 get_more.reset_index(level=1, inplace=True)
-#print(get_more.groupby('Episode').count())
-print(get_more[get_more.index.str.equals('the')]) ## this doesn't work 
-#print(get_more.head())
-#workin_with = tf_idf.unstack()
-    #workin_with = tf_idf.loc[tf_idf['dialogue words'] == word]
-#print(workin_with)
+get_more.reset_index(level=0, inplace=True)
+"""
+for word in words:
+    collection = get_more.loc[get_more['dialogue word'] == word]
+    #plt.figure(figsize=(15,9))
+    #plt.tight_layout()
+    if len(collection) > 1:
+        collection.plot(kind='line',y='tf_idf',x='Episode',title='Word: '+word,marker='.',xlim=(0,279))
+        plt.savefig('pb_words_over_time/tfidf_vs_t_'+word+'.png')
+    #plt.xticks(fontsize=10)
+    #plt.show()
+    plt.close()
+"""
+
+### create co-occurrence matrix from df 
+##### columns/rows: Character
+##### values to count: Episode 
+#print(df.head())
+character_list = df['Character'].unique().tolist()
+#print(character_list)
+### for each character, need to get array of episodes in which they appear 
+list_of_epi_lists = []
+for character in character_list:
+    episode_list = df.loc[df['Character'] == character]['Episode'].unique().tolist()
+    list_of_epi_lists.append(episode_list)
+
+character_matrix = np.zeros((len(character_list),len(character_list)))
+for i in range(len(character_list)):
+    for j in range(len(character_list)):
+        for k in range(len(list_of_epi_lists[i])):
+            for l in range(len(list_of_epi_lists[j])):
+                if list_of_epi_lists[i][k] == list_of_epi_lists[j][l]:
+                    character_matrix[i][j] = character_matrix[i][j] + 1
+                    ## TO DO: also make a list of episodes in common for each pair?!
+np.set_printoptions(threshold=np.nan)
+print(character_matrix) ## TO DO: print as a heatmap, w/ char names for each square...only do upper triangle?
