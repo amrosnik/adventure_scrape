@@ -8,8 +8,6 @@ import re
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-#### let's do some analysis on adventure data! ####
-
 idx = pd.IndexSlice
 df = pd.read_pickle("./adventure_pickle_CLEAN.pkl")
 pd.set_option('display.max_rows',None)
@@ -21,7 +19,6 @@ df = df.loc[df['Episode'].str.len() > 0]
 df['Episode'] = df['Episode'].astype('int64',copy=False)
 df['Line'] = df['Line'].astype('int64',copy=False)
 df.sort_values(by=['Episode','Line'],inplace=True)
-#print(df.head())
 
 test_marceline = df.loc[df['Character'] == 'marceline']
 test_pb = df.loc[df['Character'] == 'princess bubblegum']
@@ -56,13 +53,9 @@ def word_by_word(data):
 
 dwords,awords = word_by_word(test_marceline)
 dwords,awords = word_by_word(test_pb)
-#print(dwords.head())
-
-counts = dwords.groupby('Episode')['dialogue word'].value_counts().to_frame().rename(columns={'dialogue word':'n_w'})
 
 def pretty_plot_top_n(series,k,file_name,top_n=5, index_level=0):
     r = series.groupby(level=index_level).nlargest(top_n).reset_index(level=index_level,drop=True)
-    #slice_r = r[r['Episode'] < 100]
     plt.figure(figsize=(15,9))
     plt.tight_layout()
     r.plot(kind='bar',y='n_w')
@@ -73,6 +66,21 @@ def pretty_plot_top_n(series,k,file_name,top_n=5, index_level=0):
     return r.to_frame()
 
 
+def calc_mining_stats(dwords):
+    counts = dwords.groupby('Episode')['dialogue word'].value_counts().to_frame().rename(columns={'dialogue word':'n_w'})
+    word_sum = counts.groupby(level=0).sum().rename(columns={'n_w':'n_d'})
+    tf = counts.join(word_sum)
+    tf['tf'] = tf['n_w']/tf['n_d']
+
+    c_d = dwords['Episode'].nunique()
+    idf = dwords.groupby('dialogue word')['Episode'].nunique().to_frame().rename(columns={'Episode':'i_d'}).sort_values('i_d')
+    idf['idf'] = np.log(c_d/idf['i_d'].values)
+    tf_idf = tf.join(idf)
+    tf_idf['tf_idf'] = tf_idf['tf'] * tf_idf['idf']
+    return counts,word_sum,c_d,idf,tf_idf
+
+counts,word_sum,c_d,idf,tf_idf = calc_mining_stats(dwords)
+
 end_num = [((i+1)*15 + 1) for i in range(20)]
 start_num = [i*15 for i in range(20)]
 #for k in range(len(start_num)):
@@ -81,16 +89,6 @@ start_num = [i*15 for i in range(20)]
 #    if len(set_k) > 0:
 #        pretty_plot_top_n(set_k['n_w'],k,'counts_pb',top_n=10)
 
-word_sum = counts.groupby(level=0).sum().rename(columns={'n_w':'n_d'})
-
-tf = counts.join(word_sum)
-tf['tf'] = tf['n_w']/tf['n_d']
-
-c_d = dwords['Episode'].nunique()
-idf = dwords.groupby('dialogue word')['Episode'].nunique().to_frame().rename(columns={'Episode':'i_d'}).sort_values('i_d')
-idf['idf'] = np.log(c_d/idf['i_d'].values)
-tf_idf = tf.join(idf)
-tf_idf['tf_idf'] = tf_idf['tf'] * tf_idf['idf']
 #print(tf_idf['tf_idf'])
 #tf_idf.sort_index(by='tf_idf',inplace=True)
 #tf_idf.sort_values(by='tf_idf',ascending=True,inplace=True)
@@ -123,11 +121,7 @@ for word in words:
 """
 
 ### create co-occurrence matrix from df 
-##### columns/rows: Character
-##### values to count: Episode 
-#print(df.head())
 character_list = df['Character'].unique().tolist()
-#print(character_list)
 ### for each character, need to get array of episodes in which they appear 
 list_of_epi_lists = []
 for character in character_list:
@@ -141,9 +135,7 @@ for i in range(len(character_list)):
             for l in range(len(list_of_epi_lists[j])):
                 if list_of_epi_lists[i][k] == list_of_epi_lists[j][l]:
                     character_matrix[i][j] = character_matrix[i][j] + 1
-                    ## TO DO: also make a list of episodes in common for each pair?!
 np.set_printoptions(threshold=10000)
-#print(character_matrix)
  
 plt.figure(figsize=(17,14))
 ax = sns.heatmap(character_matrix,center=50)
