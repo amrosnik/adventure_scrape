@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import re
 import matplotlib.pyplot as plt 
+import seaborn as sns
 
 #### let's do some analysis on adventure data! ####
 
@@ -141,5 +142,18 @@ for i in range(len(character_list)):
                 if list_of_epi_lists[i][k] == list_of_epi_lists[j][l]:
                     character_matrix[i][j] = character_matrix[i][j] + 1
                     ## TO DO: also make a list of episodes in common for each pair?!
-np.set_printoptions(threshold=np.nan)
-print(character_matrix) ## TO DO: print as a heatmap, w/ char names for each square...only do upper triangle?
+np.set_printoptions(threshold=10000)
+#print(character_matrix) 
+
+
+plt.figure(figsize=(17,14))
+ax = sns.heatmap(character_matrix,center=50)
+ax.set_yticks(range(0,len(character_list)))
+ax.set_yticklabels(character_list)
+plt.yticks(rotation=360)
+ax.set_xticks(range(0,len(character_list)))
+ax.set_xticklabels(character_list)
+plt.xticks(rotation=90)
+plt.savefig("co-occurrence_matrix.png")
+#plt.show()
+plt.close()
