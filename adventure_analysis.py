@@ -143,9 +143,8 @@ for i in range(len(character_list)):
                     character_matrix[i][j] = character_matrix[i][j] + 1
                     ## TO DO: also make a list of episodes in common for each pair?!
 np.set_printoptions(threshold=10000)
-#print(character_matrix) 
-
-
+#print(character_matrix)
+ 
 plt.figure(figsize=(17,14))
 ax = sns.heatmap(character_matrix,center=50)
 ax.set_yticks(range(0,len(character_list)))
