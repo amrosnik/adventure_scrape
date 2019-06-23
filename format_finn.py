@@ -11,6 +11,9 @@ import pickle
 df = pd.read_pickle("./finn_pickle.pkl")
 
 df['Dialogue'] = df['Dialogue'].str.lower().str.replace("'","")
+df['Dialogue'] = df['Dialogue'].str.lower().str.replace("[","")
+df['Dialogue'] = df['Dialogue'].str.lower().str.replace("]","")
+df['Dialogue'] = df['Dialogue'].str.lower().str.replace("\t"," ")
 df['dialogue words'] = df.loc[:,'Dialogue'].str.strip().str.split('[\s_\-\'.:;)(!?,"\[\]]+')
 df['Action'] = df['Action'].str.lower() 
 df['action words'] = df.loc[:,'Action'].str.strip().str.split('[\s_:;\-\')(.!?,"\[\]]+')
