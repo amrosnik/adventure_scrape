@@ -10,7 +10,7 @@ import pickle
 
 df = pd.read_pickle("./finn_pickle.pkl")
 
-df['Dialogue'] = df['Dialogue'].str.lower() 
+df['Dialogue'] = df['Dialogue'].str.lower().str.replace("'","")
 df['dialogue words'] = df.loc[:,'Dialogue'].str.strip().str.split('[\s_\-\'.:;)(!?,"\[\]]+')
 df['Action'] = df['Action'].str.lower() 
 df['action words'] = df.loc[:,'Action'].str.strip().str.split('[\s_:;\-\')(.!?,"\[\]]+')
@@ -25,5 +25,6 @@ tf_idf.sort_values(by='tf_idf',ascending=True,inplace=True)
 ## need to one-hot encode finn data
 ### first: strip it to just dialogue 
 pre_one_hot = df['Dialogue'].to_list() ## or dialogue words? 
+print(pre_one_hot)
 with open('./finn_just_dialogue.pkl', 'wb') as fp:
     pickle.dump(pre_one_hot, fp)
