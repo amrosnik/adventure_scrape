@@ -163,4 +163,6 @@ for i in range(len(data)):
 print(data[219])
 df = pd.DataFrame(data,columns = ['Episode','Line','Character','Dialogue','Action'])
 #print(df.dtypes)
-df.to_pickle("./adventure_pickle_tupled.pkl")
+df['Action'] = df['Action'].str.lower() 
+df['Dialogue'] = df['Dialogue'].str.lower() 
+df.to_pickle("./adventure_pickle_tupled_2019-06-24.pkl")

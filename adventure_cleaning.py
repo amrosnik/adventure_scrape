@@ -4,7 +4,7 @@ import time
 import os.path 
 from bs4 import BeautifulSoup
 import pandas as pd 
-from lxml import html
+#from lxml import html
 import numpy as np
 import re
 
@@ -14,7 +14,11 @@ pd.set_option('display.max_columns',None)
 pd.set_option('display.expand_frame_repr',False)
 pd.set_option('max_colwidth',-1)
 
+df['Action'] = df['Action'].str.lower() 
+df['Dialogue'] = df['Dialogue'].str.lower() 
 df['Character'] = df['Character'].str.lower() 
+df['Action'] = df['Action'].str.replace('\xa0', ' ')
+df['Dialogue'] = df['Dialogue'].str.replace('\xa0', ' ')
 grpd = df.groupby('Character')
 
 #file = open("character_list.out",'w')
@@ -193,4 +197,4 @@ all_dfs = [banana_df,susan_df,cake_df,tiffany_df,finn_and_jake_df,bubblegum_df,f
 
 big_df = pd.concat(all_dfs)
 
-big_df.to_pickle("./adventure_pickle_CLEAN.pkl")
+big_df.to_pickle("./adventure_pickle_CLEAN_2019-06-24.pkl")

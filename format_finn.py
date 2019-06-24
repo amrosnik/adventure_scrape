@@ -18,7 +18,6 @@ df['Dialogue'] = df['Dialogue'].str.lower().str.replace("\"","")
 df['Dialogue'] = df['Dialogue'].str.lower().str.replace("(","")
 df['Dialogue'] = df['Dialogue'].str.lower().str.replace(")","")
 df['dialogue words'] = df.loc[:,'Dialogue'].str.strip().str.split('[\s_\-\'.:;)(!?,"\[\]]+')
-df['Action'] = df['Action'].str.lower() 
 df['action words'] = df.loc[:,'Action'].str.strip().str.split('[\s_:;\-\')(.!?,"\[\]]+')
 
 #print(df.head())
