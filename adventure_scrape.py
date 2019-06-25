@@ -12,7 +12,7 @@ anchors = [a for a in (td.find('a') for td in soup.findAll('td')) if a]
 anchors = anchors[2:] ## first two results are irrelevant
 
 ### i have 213 partial to full transcripts to work with...out of possibly 283 :/ 
-for i in range(239,len(anchors)):
+for i in range(0,len(anchors)):
     if anchors[i].has_attr('href'):
         link = anchors[i]['href']
         actual_link = 'https://adventuretime.fandom.com'+link 

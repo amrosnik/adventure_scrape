@@ -1,10 +1,5 @@
-import requests
-import urllib.request
-import time
 import os.path 
-from bs4 import BeautifulSoup
 import pandas as pd 
-#from lxml import html
 import numpy as np
 import re
 
@@ -19,11 +14,12 @@ df['Dialogue'] = df['Dialogue'].str.lower()
 df['Character'] = df['Character'].str.lower() 
 df['Action'] = df['Action'].str.replace('\xa0', ' ')
 df['Dialogue'] = df['Dialogue'].str.replace('\xa0', ' ')
+df['Dialogue'] = df['Dialogue'].str.replace('"', ' ')
+df['Dialogue'] = df['Dialogue'].str.replace(']', ' ')
+df['Dialogue'] = df['Dialogue'].str.replace('[', ' ')
+df['Action'] = df['Action'].str.replace(']', ' ')
+df['Action'] = df['Action'].str.replace('[', ' ')
 grpd = df.groupby('Character')
-
-#file = open("character_list.out",'w')
-#file.write(str(grpd.count()))
-#file.close()
 
 #### FUNCTIONS FOR CLEANING DATA ####
 def combine_names(ex1,ex2,which_name):

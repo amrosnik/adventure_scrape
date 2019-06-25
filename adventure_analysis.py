@@ -61,7 +61,7 @@ def pretty_plot_top_n(series,k,file_name,top_n=5, index_level=0):
     r.plot(kind='bar',y='n_w')
     plt.xticks(fontsize=10)
     #plt.show()
-    plt.savefig(file_name+'_set'+str(k)+'.png')
+    #plt.savefig(file_name+'_set'+str(k)+'.png')
     plt.close()
     return r.to_frame()
 
@@ -83,42 +83,37 @@ counts,word_sum,c_d,idf,tf_idf = calc_mining_stats(dwords)
 
 end_num = [((i+1)*15 + 1) for i in range(20)]
 start_num = [i*15 for i in range(20)]
-#for k in range(len(start_num)):
-#    print(start_num[k],end_num[k])
-#    set_k = counts.loc[idx[start_num[k]:end_num[k],:]]
-#    if len(set_k) > 0:
-#        pretty_plot_top_n(set_k['n_w'],k,'counts_pb',top_n=10)
+for k in range(len(start_num)):
+    set_k = counts.loc[idx[start_num[k]:end_num[k],:]]
+    if len(set_k) > 0:
+        pretty_plot_top_n(set_k['n_w'],k,'counts_pb',top_n=10)
 
-#print(tf_idf['tf_idf'])
 #tf_idf.sort_index(by='tf_idf',inplace=True)
 #tf_idf.sort_values(by='tf_idf',ascending=True,inplace=True)
 #print(tf_idf.loc[idx[0:10,'tf_idf']].sort_values(ascending=True,inplace=True))
-    #.sort_values(by='tf_idf',ascending=True,inplace=True))
 #print(tf_idf.head())
 
-#for k in range(len(start_num)):
-#    print(start_num[k],end_num[k])
-#    set_k = tf_idf.loc[idx[start_num[k]:end_num[k],:]]
-#    if len(set_k) > 0:
-#        pretty_plot_top_n(set_k['tf_idf'],k,'tf-idf_pb',top_n=5)
+for k in range(len(start_num)):
+    set_k = tf_idf.loc[idx[start_num[k]:end_num[k],:]]
+    if len(set_k) > 0:
+        pretty_plot_top_n(set_k['tf_idf'],k,'tf-idf_pb',top_n=5)
  
 words = tf_idf.index.get_level_values(level=1).unique().tolist()
 get_more = tf_idf.swaplevel(i=0, j=1, axis=0)
 get_more.unstack()
 get_more.reset_index(level=1, inplace=True)
 get_more.reset_index(level=0, inplace=True)
-"""
+
 for word in words:
     collection = get_more.loc[get_more['dialogue word'] == word]
     #plt.figure(figsize=(15,9))
     #plt.tight_layout()
     if len(collection) > 1:
         collection.plot(kind='line',y='tf_idf',x='Episode',title='Word: '+word,marker='.',xlim=(0,279))
-        plt.savefig('pb_words_over_time/tfidf_vs_t_'+word+'.png')
+        #plt.savefig('pb_words_over_time/tfidf_vs_t_'+word+'.png')
     #plt.xticks(fontsize=10)
     #plt.show()
     plt.close()
-"""
 
 ### create co-occurrence matrix from df 
 character_list = df['Character'].unique().tolist()
@@ -145,6 +140,6 @@ plt.yticks(rotation=360)
 ax.set_xticks(range(0,len(character_list)))
 ax.set_xticklabels(character_list)
 plt.xticks(rotation=90)
-plt.savefig("co-occurrence_matrix.png")
+#plt.savefig("co-occurrence_matrix.png")
 #plt.show()
 plt.close()
