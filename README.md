@@ -21,6 +21,8 @@ Finally, the Google Colabs notebook INFINNERATOR_example.ipynb is the way to cre
 It's a mini-batched LSTM network. I tried several different architectures and didn't get excellent 
 performance, but please write me if you do! 
 
+If you'd like to read a more in-depth look at the data, I wrote a Medium post: https://medium.com/@catcherinthepi/adventure-scrape-text-mining-on-adventure-time-transcripts-8a50d09c2b6d?sk=b6a9bdd006ed9c1644ebe638ba3f01eb
+
 
 Cheers,
 Andreana
